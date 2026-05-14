@@ -209,7 +209,7 @@ def load_or_train_artifact(X: pd.DataFrame, y: pd.Series):
         pred = model.predict(X_test)
         metrics[name] = evaluate(y_test, pred)
         fitted[name] = model
-    best_name = max(metrics, key=lambda name: metrics[name]["r2"])
+    best_name = max(metrics, key=lambda name: metrics[name]["R2"])
     return {
         "model": fitted[best_name],
         "model_name": best_name,
@@ -279,7 +279,7 @@ feature_columns = artifact["feature_columns"]
 metrics_df = pd.DataFrame(
     [{"Model": name, **vals} for name, vals in artifact["metrics"].items()]
 )
-best_row = metrics_df.sort_values("r2", ascending=False).iloc[0]
+best_row = metrics_df.sort_values("R2", ascending=False).iloc[0]
 
 st.sidebar.markdown("## 🚲 Seoul Bike AI")
 st.sidebar.caption("Urban mobility demand intelligence")
@@ -304,7 +304,7 @@ c1, c2, c3, c4 = st.columns(4)
 with c1:
     kpi("Total Rentals", f"{int(raw['rented_bike_count'].sum()):,}", "from source dataset")
 with c2:
-    kpi("Best R²", f"{best_row['r2']:.3f}", best_row["Model"])
+    kpi("Best R²", f"{best_row['R2']:.3f}", best_row["Model"])
 with c3:
     kpi("Records", f"{len(raw):,}", "hourly observations")
 with c4:
@@ -421,7 +421,7 @@ with tab2:
 with tab3:
     st.markdown("## 🏆 Model performance")
     st.caption("Metrics are calculated from the uploaded SeoulBikeData.csv using the project preprocessing and train/test split logic.")
-    display = metrics_df.sort_values("r2", ascending=False).copy()
+    display = metrics_df.sort_values("R2", ascending=False).copy()
     st.dataframe(
         display.style.format({"RMSE": "{:.3f}", "MAE": "{:.3f}", "R2": "{:.6f}"}),
         use_container_width=True,
