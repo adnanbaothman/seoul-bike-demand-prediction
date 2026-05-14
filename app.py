@@ -188,13 +188,6 @@ def evaluate(y_true, y_pred) -> dict:
 
 @st.cache_resource
 def load_or_train_artifact(X: pd.DataFrame, y: pd.Series):
-    if MODEL_PATH.exists():
-        try:
-            artifact = joblib.load(MODEL_PATH)
-            if "model" in artifact and "feature_columns" in artifact and "metrics" in artifact:
-                return artifact
-        except Exception:
-            pass
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)
     candidates = {
