@@ -304,7 +304,7 @@ c1, c2, c3, c4 = st.columns(4)
 with c1:
     kpi("Total Rentals", f"{int(raw['rented_bike_count'].sum()):,}", "from source dataset")
 with c2:
-    kpi("Best R²", f"{best_row['R2']:.3f}", best_row["Model"])
+    kpi("Best R²", f"{best_row['r2']:.3f}", best_row["Model"])
 with c3:
     kpi("Records", f"{len(raw):,}", "hourly observations")
 with c4:
