@@ -421,7 +421,7 @@ with tab2:
 with tab3:
     st.markdown("## 🏆 Model performance")
     st.caption("Metrics are calculated from the uploaded SeoulBikeData.csv using the project preprocessing and train/test split logic.")
-    display = metrics_df.sort_values("R2", ascending=False).copy()
+    display = metrics_df.sort_values("r2", ascending=False).copy()
     st.dataframe(
         display.style.format({"RMSE": "{:.3f}", "MAE": "{:.3f}", "R2": "{:.6f}"}),
         use_container_width=True,
