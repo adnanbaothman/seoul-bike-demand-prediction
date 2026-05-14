@@ -279,7 +279,7 @@ feature_columns = artifact["feature_columns"]
 metrics_df = pd.DataFrame(
     [{"Model": name, **vals} for name, vals in artifact["metrics"].items()]
 )
-best_row = metrics_df.sort_values("R2", ascending=False).iloc[0]
+best_row = metrics_df.sort_values("r2", ascending=False).iloc[0]
 
 st.sidebar.markdown("## 🚲 Seoul Bike AI")
 st.sidebar.caption("Urban mobility demand intelligence")
