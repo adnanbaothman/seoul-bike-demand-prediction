@@ -1,3 +1,6 @@
+## Live Demo
+[Open the App](https://huggingface.co/spaces/AdnanBaothman/seoul-bike-demand-intelligence)
+
 # Seoul Bike Demand Intelligence
 
 A professional machine learning dashboard that predicts hourly bike rental demand using weather, time, and operational factors from the Seoul Bike Sharing Demand dataset.
