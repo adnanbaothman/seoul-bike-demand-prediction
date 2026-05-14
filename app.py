@@ -209,7 +209,7 @@ def load_or_train_artifact(X: pd.DataFrame, y: pd.Series):
         pred = model.predict(X_test)
         metrics[name] = evaluate(y_test, pred)
         fitted[name] = model
-    best_name = max(metrics, key=lambda name: metrics[name]["R2"])
+    best_name = max(metrics, key=lambda name: metrics[name]["r2"])
     return {
         "model": fitted[best_name],
         "model_name": best_name,
